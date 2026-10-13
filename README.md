@@ -55,35 +55,13 @@ pip install litert-lm
 
 ---
 
-## 3. Supported Models & Download Links
+## 3. Testing Guide by OS & Hardware Backend
 
-LiteRT-LM models use the `.litertlm` container format. You can download the official models directly from **Hugging Face Hub** or **Kaggle**:
+Download the `.litertlm` models directly from Hugging Face or Kaggle, and pass the path with `--model <path>`:
+- **Generative LLM (`gemma-4-E2B-it.litertlm`)**: [google/gemma-4-E2B-it on Hugging Face](https://huggingface.co/google/gemma-4-E2B-it)
+- **Multimodal Embedding (`embedding-gemma-v2.litertlm`)**: [Embedding Gemma on Hugging Face](https://huggingface.co/google/embeddinggemma-2b) · [Kaggle](https://www.kaggle.com/models/google/embeddinggemma)
 
-### 1. Generative LLM Model (`gemma-4-E2B-it.litertlm`)
-- **Hugging Face Hub**: [google/gemma-4-E2B-it](https://huggingface.co/google/gemma-4-E2B-it)
-  - Direct Model Repository: [huggingface.co/google/gemma-4-E2B-it](https://huggingface.co/google/gemma-4-E2B-it)
-  - Files & Artifacts: [huggingface.co/google/gemma-4-E2B-it/tree/main](https://huggingface.co/google/gemma-4-E2B-it/tree/main)
-
-### 2. Multimodal Embedding Model (`embedding-gemma-v2.litertlm`)
-- **Hugging Face Hub**:
-  - [Embedding Gemma on Hugging Face](https://huggingface.co/google/embeddinggemma-2b)
-- **Kaggle Models**:
-  - [Google Embedding Gemma on Kaggle](https://www.kaggle.com/models/google/embeddinggemma)
-
----
-
-### Model Placement
-Place your downloaded `.litertlm` files in the repository root or in a `./models/` directory:
-- `gemma-4-E2B-it.litertlm` (Interactive chat with `llmtesting.py`)
-- `embedding-gemma-v2.litertlm` (Embedding verification & benchmarks with `embeddinggemmatesting.py`)
-
-Both testing scripts will **automatically discover** these models without needing `--model`. You can also supply any custom path with `--model <path>`.
-
----
-
-## 4. Testing Guide by OS & Hardware Backend
-
-Model files (`.litertlm`) are multi-gigabyte binaries and are excluded from Git. Pass the path using `--model` or place them in `./models/`.
+Model files (`.litertlm`) are multi-gigabyte binaries and are excluded from Git. Simply pass the path using `--model <path>`.
 
 ---
 
@@ -197,7 +175,7 @@ Goodbye!
 
 ---
 
-## 5. Sample Benchmark Output for Embedding Gemma 2
+## 4. Sample Benchmark Output for Embedding Gemma 2
 
 ```
 ================================================================================
@@ -215,22 +193,22 @@ Audio      |     106.41 ms   |      54.22 ms   |     1.96x faster
 
 ---
 
-## 6. CLI Arguments Quick Reference
+## 5. CLI Arguments Quick Reference
 
 | Argument | Default | Description |
 | :--- | :--- | :--- |
 | `--model` | Auto-detect | Path to `.litertlm` model file |
-| `--backend` | `both` | Backend: `cpu`, `gpu`, `npu`, or `both` |
+| `--backend` | `both` (embedding) / `cpu` (llm) | Backend: `cpu`, `gpu`, `npu`, or `both` |
 | `--threads` | `4` | Number of CPU threads |
 | `--dispatch-lib-dir` | `None` | Path to LiteRT dispatch library directory (for NPU) |
-| `--iterations` | `3` | Number of benchmark runs per backend |
-| `--max-tokens` | `60` | Max tokens generated during benchmark (`llmtesting.py`) |
-| `--prompt` | Built-in | Custom prompt text (`llmtesting.py`) |
+| `--iterations` | `3` | Number of benchmark runs per backend (`embeddinggemmatesting.py`) |
+| `--max-tokens` | `512` | Max tokens generated per turn (`llmtesting.py`) |
+| `--prompt` | `None` | Optional single prompt test (`llmtesting.py`) |
 | `--samples-dir` | Auto-detect | Directory containing `vision/` and `audio/` test files (`embeddinggemmatesting.py`) |
 
 ---
 
-## 7. Pass / Fail Exit Codes for CI/CD
+## 6. Pass / Fail Exit Codes for CI/CD
 
 Both scripts return standard exit codes:
 - **Code 0**: All verification tests and benchmarks completed successfully (`PASS`).
