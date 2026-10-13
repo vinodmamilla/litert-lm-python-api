@@ -59,7 +59,7 @@ pip install litert-lm
 
 Download the `.litertlm` models directly from Hugging Face or Kaggle, and pass the path with `--model <path>`:
 - **Generative LLM (`gemma-4-E2B-it.litertlm`)**: [google/gemma-4-E2B-it on Hugging Face](https://huggingface.co/google/gemma-4-E2B-it)
-- **Multimodal Embedding (`embedding-gemma-v2.litertlm`)**: [Embedding Gemma on Hugging Face](https://huggingface.co/google/embeddinggemma-2b) · [Kaggle](https://www.kaggle.com/models/google/embeddinggemma)
+- **Multimodal Embedding (`embeddinggemma-2-740m.litertlm`)**: [Embedding Gemma on Hugging Face](https://huggingface.co/litert-community/embeddinggemma-2-740m-litert-lm/blob/main/embeddinggemma-2-740m.litertlm) · [Kaggle](https://www.kaggle.com/models/google/embeddinggemma)
 
 Model files (`.litertlm`) are multi-gigabyte binaries and are excluded from Git. Simply pass the path using `--model <path>`.
 
@@ -72,48 +72,48 @@ Verifies single embedding latency (Text, Vision, Audio) and cosine similarity ra
 #### 🍎 macOS (Apple Silicon: M1 / M2 / M3 / M4)
 - **CPU only**:
   ```bash
-  python3 embeddinggemmatesting.py --model embedding-gemma-v2.litertlm --backend cpu
+  python3 embeddinggemmatesting.py --model embeddinggemma-2-740m.litertlm --backend cpu
   ```
 - **GPU (Apple Metal via WebGPU)**:
   ```bash
-  python3 embeddinggemmatesting.py --model embedding-gemma-v2.litertlm --backend gpu
+  python3 embeddinggemmatesting.py --model embeddinggemma-2-740m.litertlm --backend gpu
   ```
 - **Both CPU & GPU (with Comparative Speedup Table)**:
   ```bash
-  python3 embeddinggemmatesting.py --model embedding-gemma-v2.litertlm --backend both
+  python3 embeddinggemmatesting.py --model embeddinggemma-2-740m.litertlm --backend both
   ```
 > **Note on NPU on macOS**: LiteRT-LM leverages Apple Silicon GPU (Metal) for hardware acceleration. Apple Neural Engine (ANE) via NPU backend is not currently exposed in LiteRT-LM. Always test with `--backend gpu` on Apple Silicon.
 
 #### 🐧 Linux (x86_64 / aarch64)
 - **CPU only**:
   ```bash
-  python3 embeddinggemmatesting.py --model embedding-gemma-v2.litertlm --backend cpu
+  python3 embeddinggemmatesting.py --model embeddinggemma-2-740m.litertlm --backend cpu
   ```
 - **GPU (Vulkan / WebGPU)**:
   ```bash
-  python3 embeddinggemmatesting.py --model embedding-gemma-v2.litertlm --backend gpu
+  python3 embeddinggemmatesting.py --model embeddinggemma-2-740m.litertlm --backend gpu
   ```
 - **Both CPU & GPU (with Comparative Speedup Table)**:
   ```bash
-  python3 embeddinggemmatesting.py --model embedding-gemma-v2.litertlm --backend both
+  python3 embeddinggemmatesting.py --model embeddinggemma-2-740m.litertlm --backend both
   ```
 
 #### 🪟 Windows (DirectX 12 / Vulkan / CPU / NPU)
 - **CPU only**:
   ```cmd
-  python embeddinggemmatesting.py --model embedding-gemma-v2.litertlm --backend cpu
+  python embeddinggemmatesting.py --model embeddinggemma-2-740m.litertlm --backend cpu
   ```
 - **GPU (DirectX 12 / Vulkan via WebGPU)**:
   ```cmd
-  python embeddinggemmatesting.py --model embedding-gemma-v2.litertlm --backend gpu
+  python embeddinggemmatesting.py --model embeddinggemma-2-740m.litertlm --backend gpu
   ```
 - **Both CPU & GPU**:
   ```cmd
-  python embeddinggemmatesting.py --model embedding-gemma-v2.litertlm --backend both
+  python embeddinggemmatesting.py --model embeddinggemma-2-740m.litertlm --backend both
   ```
 - **NPU (Windows on ARM / Qualcomm / Intel AI Boost)**:
   ```cmd
-  python embeddinggemmatesting.py --model embedding-gemma-v2.litertlm --backend npu
+  python embeddinggemmatesting.py --model embeddinggemma-2-740m.litertlm --backend npu
   ```
 
 #### 📊 Sample Benchmark Output (`--backend both`):

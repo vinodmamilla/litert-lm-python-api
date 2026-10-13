@@ -79,6 +79,10 @@ def find_embedding_model(explicit_path: str | None = None) -> str:
         return os.path.abspath(os.path.expanduser(env_path))
 
     candidates = [
+        os.path.join(os.getcwd(), "models", "embeddinggemma-2-740m.litertlm"),
+        os.path.join(os.getcwd(), "embeddinggemma-2-740m.litertlm"),
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "models", "embeddinggemma-2-740m.litertlm"),
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "embeddinggemma-2-740m.litertlm"),
         os.path.join(os.getcwd(), "models", "embedding-gemma-v2.litertlm"),
         os.path.join(os.getcwd(), "embedding-gemma-v2.litertlm"),
         os.path.join(os.path.dirname(os.path.abspath(__file__)), "models", "embedding-gemma-v2.litertlm"),
