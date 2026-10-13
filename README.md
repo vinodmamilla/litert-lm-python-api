@@ -55,43 +55,34 @@ pip install litert-lm
 
 ---
 
-## 3. Downloading Models from Hugging Face
+## 3. Supported Models & Download Links
 
-LiteRT-LM models use the `.litertlm` container format. You can download official models directly from **Hugging Face Hub** or **Kaggle**:
+LiteRT-LM models use the `.litertlm` container format. You can download the official models directly from **Hugging Face Hub** or **Kaggle**:
 
-### 🔗 Official Hugging Face Links
-- **Google Organization Hub**: [huggingface.co/google](https://huggingface.co/google)
-- **LiteRT Models Search**: [huggingface.co/models?search=litert](https://huggingface.co/models?search=litert)
-- **Gemma 3 Models**: [huggingface.co/google/gemma-3-1b-it](https://huggingface.co/google/gemma-3-1b-it) · [huggingface.co/google/gemma-3-4b-it](https://huggingface.co/google/gemma-3-4b-it)
-- **Gemma 2 Models**: [huggingface.co/google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it)
-- **Embedding Models**: [huggingface.co/google/embeddinggemma-2b](https://huggingface.co/google/embeddinggemma-2b)
-- **Kaggle Models**: [kaggle.com/models/google/gemma-3](https://www.kaggle.com/models/google/gemma-3) · [kaggle.com/models/google/embeddinggemma](https://www.kaggle.com/models/google/embeddinggemma)
+### 1. Generative LLM Model (`gemma-4-E2B-it.litertlm`)
+- **Hugging Face Hub**:
+  - [Google Organization Hub](https://huggingface.co/google)
+  - [LiteRT Models Collection](https://huggingface.co/models?search=litert)
+  - [Gemma 3 1B IT](https://huggingface.co/google/gemma-3-1b-it) · [Gemma 3 4B IT](https://huggingface.co/google/gemma-3-4b-it)
+  - [Gemma 2 2B IT](https://huggingface.co/google/gemma-2-2b-it)
+- **Kaggle Models**:
+  - [Google Gemma 3 Models on Kaggle](https://www.kaggle.com/models/google/gemma-3)
+  - [Google Gemma 2 Models on Kaggle](https://www.kaggle.com/models/google/gemma-2)
+
+### 2. Multimodal Embedding Model (`embedding-gemma-v2.litertlm`)
+- **Hugging Face Hub**:
+  - [Embedding Gemma on Hugging Face](https://huggingface.co/google/embeddinggemma-2b)
+- **Kaggle Models**:
+  - [Google Embedding Gemma on Kaggle](https://www.kaggle.com/models/google/embeddinggemma)
 
 ---
 
-### How to Download via `huggingface-cli`
+### Model Placement
+Place your downloaded `.litertlm` files in the repository root or in a `./models/` directory:
+- `gemma-4-E2B-it.litertlm` (Interactive chat with `llmtesting.py`)
+- `embedding-gemma-v2.litertlm` (Embedding verification & benchmarks with `embeddinggemmatesting.py`)
 
-1. **Install and authenticate** (required for gated Google Gemma models):
-   ```bash
-   pip install huggingface_hub
-   huggingface-cli login
-   ```
-
-2. **Download Generative LLM Model**:
-   ```bash
-   # Create a local models directory:
-   mkdir -p models
-
-   # Download .litertlm file into ./models/
-   huggingface-cli download google/gemma-3-1b-it-litert-lm model.litertlm --local-dir ./models
-   ```
-
-3. **Download Multimodal Embedding Model**:
-   ```bash
-   huggingface-cli download google/embedding-gemma-v2-litert-lm model.litertlm --local-dir ./models
-   ```
-
-> **Tip**: Once downloaded into `./models/` or the current directory, the test scripts (`llmtesting.py` and `embeddinggemmatesting.py`) will automatically discover and load them without requiring `--model`!
+Both testing scripts will **automatically discover** these models without needing `--model`. You can also supply any custom path with `--model <path>`.
 
 ---
 
