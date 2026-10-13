@@ -116,6 +116,21 @@ Verifies single embedding latency (Text, Vision, Audio) and cosine similarity ra
   python embeddinggemmatesting.py --model embedding-gemma-v2.litertlm --backend npu
   ```
 
+#### 📊 Sample Benchmark Output (`--backend both`):
+```
+================================================================================
+  HARDWARE COMPARISON: CPU vs GPU (Apple Silicon Metal / WebGPU)
+================================================================================
+Modality   | CPU Latency    | GPU Latency    | Speedup     
+--------------------------------------------------------------------------------
+Text       |      33.81 ms   |      13.52 ms   |     2.50x faster
+Vision     |     379.03 ms   |     131.18 ms   |     2.89x faster
+Audio      |     106.41 ms   |      54.22 ms   |     1.96x faster
+--------------------------------------------------------------------------------
+
+✅ ALL 4 VERIFICATION TESTS PASSED (Text, Vision, Audio, Cross-Modal)!
+```
+
 ---
 
 ### B. Generative LLM Interactive Chat (`llmtesting.py`)
@@ -175,25 +190,7 @@ Goodbye!
 
 ---
 
-## 4. Sample Benchmark Output for Embedding Gemma 2
-
-```
-================================================================================
-  HARDWARE COMPARISON: CPU vs GPU (Apple Silicon Metal / WebGPU)
-================================================================================
-Modality   | CPU Latency    | GPU Latency    | Speedup     
---------------------------------------------------------------------------------
-Text       |      33.81 ms   |      13.52 ms   |     2.50x faster
-Vision     |     379.03 ms   |     131.18 ms   |     2.89x faster
-Audio      |     106.41 ms   |      54.22 ms   |     1.96x faster
---------------------------------------------------------------------------------
-
-✅ ALL 4 VERIFICATION TESTS PASSED (Text, Vision, Audio, Cross-Modal)!
-```
-
----
-
-## 5. CLI Arguments Quick Reference
+## 4. CLI Arguments Quick Reference
 
 | Argument | Default | Description |
 | :--- | :--- | :--- |
@@ -208,7 +205,7 @@ Audio      |     106.41 ms   |      54.22 ms   |     1.96x faster
 
 ---
 
-## 6. Pass / Fail Exit Codes for CI/CD
+## 5. Pass / Fail Exit Codes for CI/CD
 
 Both scripts return standard exit codes:
 - **Code 0**: All verification tests and benchmarks completed successfully (`PASS`).
