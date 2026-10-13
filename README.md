@@ -60,14 +60,9 @@ pip install litert-lm
 LiteRT-LM models use the `.litertlm` container format. You can download the official models directly from **Hugging Face Hub** or **Kaggle**:
 
 ### 1. Generative LLM Model (`gemma-4-E2B-it.litertlm`)
-- **Hugging Face Hub**:
-  - [Google Organization Hub](https://huggingface.co/google)
-  - [LiteRT Models Collection](https://huggingface.co/models?search=litert)
-  - [Gemma 3 1B IT](https://huggingface.co/google/gemma-3-1b-it) · [Gemma 3 4B IT](https://huggingface.co/google/gemma-3-4b-it)
-  - [Gemma 2 2B IT](https://huggingface.co/google/gemma-2-2b-it)
-- **Kaggle Models**:
-  - [Google Gemma 3 Models on Kaggle](https://www.kaggle.com/models/google/gemma-3)
-  - [Google Gemma 2 Models on Kaggle](https://www.kaggle.com/models/google/gemma-2)
+- **Hugging Face Hub**: [google/gemma-4-E2B-it](https://huggingface.co/google/gemma-4-E2B-it)
+  - Direct Model Repository: [huggingface.co/google/gemma-4-E2B-it](https://huggingface.co/google/gemma-4-E2B-it)
+  - Files & Artifacts: [huggingface.co/google/gemma-4-E2B-it/tree/main](https://huggingface.co/google/gemma-4-E2B-it/tree/main)
 
 ### 2. Multimodal Embedding Model (`embedding-gemma-v2.litertlm`)
 - **Hugging Face Hub**:
