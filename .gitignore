@@ -1,0 +1,23 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+.venv/
+venv/
+ENV/
+
+# Large binary model files (Do NOT commit multi-GB models to Git!)
+*.litertlm
+*.bin
+*.tflite
+*.whl
+models/*.litertlm
+
+# System & IDE files
+.DS_Store
+.idea/
+.vscode/
+*.swp
